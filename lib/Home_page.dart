@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lista_all/pages/home/home_widgets/home_appbar.dart';
+import 'package:lista_all/pages/home/home_widgets/home_content.dart';
+import 'package:lista_all/pages/home/home_widgets/home_drawer.dart';
+import 'package:lista_all/pages/home/home_widgets/home_fab.dart';
 
 class Home_page extends StatelessWidget {
   const Home_page({super.key});
@@ -29,10 +33,10 @@ class Home_pageState extends State<_Home_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
-      appBar: AppBar(),
-      floatingActionButton: FloatingActionButton(),
-      body: Container(),
+      drawer: getHome_drawer(),
+      appBar: getHome_appbar(),
+      floatingActionButton: getFab(),
+      body: getHome_content(),
     );
   }
 }
