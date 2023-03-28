@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lista_all/colors/custom_colors.dart';
 
 FloatingActionButton getFab() {
   return FloatingActionButton(
-    backgroundColor: Color(0xFF430A66),
+    backgroundColor: CustomColors().getColorMain(),
     onPressed: () {
     
   },

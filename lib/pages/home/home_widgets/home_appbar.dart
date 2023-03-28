@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lista_all/colors/custom_colors.dart';
 
 AppBar getHome_appbar() {
   return AppBar(
     title: const Text('Home'),
     centerTitle: true,
-    backgroundColor: const Color(0xff430A66),
+    backgroundColor: CustomColors().getColorMain(),
     actions: [
       IconButton(
-        icon: const Icon(Icons.more_vert_rounded,
-                  color: Colors.white,
+        icon: const Icon(
+          Icons.more_vert_rounded,
+          color: Colors.white,
         ),
-        onPressed: () {
-
-        },
-
-      ), 
-
+        onPressed: () {},
+      ),
     ],
   );
 }
