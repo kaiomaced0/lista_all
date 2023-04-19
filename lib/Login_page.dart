@@ -15,7 +15,7 @@ class Login_page extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const _Login_page(title: 'Home'),
+      home: const _Login_page(title: 'Login'),
     );
   }
 }

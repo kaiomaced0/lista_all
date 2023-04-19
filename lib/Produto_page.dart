@@ -15,7 +15,7 @@ class Produto_page extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const _Produto_page(title: 'Home'),
+      home: const _Produto_page(title: 'Produto'),
     );
   }
 }

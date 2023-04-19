@@ -15,7 +15,7 @@ class Cadastro_page extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const _Cadastro_page(title: 'Home'),
+      home: const _Cadastro_page(title: 'Cadastro'),
     );
   }
 }
