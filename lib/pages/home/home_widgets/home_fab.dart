@@ -7,5 +7,6 @@ FloatingActionButton getFab() {
     onPressed: () {
     
   },
+  child: Icon(Icons.add, color: Colors.white,),
   );
 }
