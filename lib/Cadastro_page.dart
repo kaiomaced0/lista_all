@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lista_all/pages/home/home_widgets/home_appbar.dart';
-import 'package:lista_all/pages/home/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home/home_widgets/home_fab.dart';
-
+import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/pages/home_widgets/home_content.dart';
+import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/pages/home_widgets/home_fab.dart';
 class Cadastro_page extends StatelessWidget {
   const Cadastro_page({super.key});
 
@@ -34,7 +33,7 @@ class Cadastro_pageState extends State<_Cadastro_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar(),
+      appBar: getHome_appbar("Cadastro"),
       floatingActionButton: getFab(),
       body: HomePageContent(),
     );

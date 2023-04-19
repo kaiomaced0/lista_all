@@ -4,8 +4,8 @@ import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
 import 'package:lista_all/pages/home_widgets/home_fab.dart';
 
-class Login_page extends StatelessWidget {
-  const Login_page({super.key});
+class AdmHome_page extends StatelessWidget {
+  const AdmHome_page({super.key});
 
   // This widget is the root of your application.
   @override
@@ -15,26 +15,26 @@ class Login_page extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const _Login_page(title: 'Login'),
+      home: const _AdmHome_page(title: 'Adm Home'),
     );
   }
 }
 
-class _Login_page extends StatefulWidget {
-  const _Login_page({super.key, required this.title});
+class _AdmHome_page extends StatefulWidget {
+  const _AdmHome_page({super.key, required this.title});
 
   final String title;
 
   @override
-  State<_Login_page> createState() => Login_pageState();
+  State<_AdmHome_page> createState() => AdmHome_pageState();
 }
 
-class Login_pageState extends State<_Login_page> {
+class AdmHome_pageState extends State<_AdmHome_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar("Login"),
+      appBar: getHome_appbar("Adm Home"),
       floatingActionButton: getFab(),
       body: HomePageContent(),
     );

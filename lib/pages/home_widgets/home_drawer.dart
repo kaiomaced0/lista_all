@@ -14,33 +14,35 @@ Drawer getHome_drawer() {
           accountName: Text('Kaio Macedo'),
           accountEmail: Text('kaiomacedo@unitins.br'),
           currentAccountPicture: CircleAvatar(
-            backgroundColor: Colors.white,
+            backgroundColor: CustomColors().getColorCustom1(),
             child: Text(
-                    "KM",
-                    style: TextStyle(fontSize: 40),
-                    ),
+              "KM",
+              style: TextStyle(fontSize: 40),
+            ),
           ),
-          ),
+        ),
         ListTile(
           leading: Icon(
             Icons.settings,
             color: CustomColors().getColorMain(),
           ),
-          title: Text(
-            'Configurações'
+          title: Text('Configurações'),
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.login,
+            color: CustomColors().getColorMain(),
           ),
+          title: Text('Sair'),
         ),
         ListTile(
           leading: Icon(
             Icons.arrow_back,
             color: CustomColors().getColorMain(),
           ),
-          title: Text(
-            'Sair'
-          ),
+          title: Text('Sair'),
         ),
       ],
     ),
-
   );
 }

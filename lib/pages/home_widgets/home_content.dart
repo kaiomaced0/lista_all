@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lista_all/pages/home/home_widgets/home_list_items.dart';
-import 'package:lista_all/pages/home/home_widgets/home_list_model.dart';
+import 'package:lista_all/colors/custom_colors.dart';
 
 class HomePageContent extends StatefulWidget {
   const HomePageContent({super.key});
@@ -21,9 +19,8 @@ class _HomePageContentState extends State<HomePageContent> {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            // ignore: prefer_const_constructors
-            Color.fromARGB(255, 134, 134, 152),
-            Color.fromARGB(255, 176, 161, 255),
+            CustomColors().getColorCustom1(),
+            CustomColors().getColorCustom2()
           ],
         ),
       ),
