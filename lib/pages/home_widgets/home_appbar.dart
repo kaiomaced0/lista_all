@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 
-AppBar getHome_appbar(String title) {
+AppBar getHome_appbar(String titulo) {
+  Text tituloA = Text(titulo);
   return AppBar(
-    title: const Text('title'),
+    title: tituloA,
     centerTitle: true,
     backgroundColor: CustomColors().getColorMain(),
     actions: [
       IconButton(
         icon: const Icon(
-          Icons.more_vert_rounded,
+          Icons.favorite_border,
+          color: Colors.white,
+        ),
+        onPressed: () {},
+      ),
+      IconButton(
+        icon: const Icon(
+          Icons.search,
           color: Colors.white,
         ),
         onPressed: () {},
