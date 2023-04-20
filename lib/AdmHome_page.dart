@@ -32,8 +32,9 @@ class _AdmHome_page extends StatefulWidget {
 class AdmHome_pageState extends State<_AdmHome_page> {
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
-      drawer: getHome_drawer(),
       appBar: getHome_appbar("Adm Home"),
       floatingActionButton: getFab(),
       body: HomePageContent(),
