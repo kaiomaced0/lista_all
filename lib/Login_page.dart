@@ -35,7 +35,7 @@ class Login_pageState extends State<_Login_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Home_drawer(),
-      appBar: getHome_appbar("Login"),
+      appBar: getHome_appbar("Login", context),
       body: LoginPageContent(),
     );
   }

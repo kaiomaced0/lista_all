@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/Carrinho_page.dart';
 import 'package:lista_all/Conta_page.dart';
+import 'package:lista_all/Favoritos_page.dart';
 import 'package:lista_all/Home_page.dart';
 import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
@@ -59,7 +60,7 @@ BottomNavigationBar getHome_bnb(BuildContext context) {
   );
 }
 
-AppBar getHome_appbar(String titulo) {
+AppBar getHome_appbar(String titulo, BuildContext context) {
   Text tituloA = Text(titulo);
   return AppBar(
     title: tituloA,
@@ -71,14 +72,22 @@ AppBar getHome_appbar(String titulo) {
           Icons.favorite_border,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => Favoritos_page(),
+          ));
+        },
       ),
       IconButton(
         icon: const Icon(
           Icons.search,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) => Search_page(),
+          ));
+        },
       ),
     ],
   );

@@ -120,7 +120,7 @@ class Produto_pageState extends State<_Produto_page> {
 
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar("Produto"),
+      appBar: getHome_appbar("Produto", context),
       body: HomePageContent(),
     );
   }

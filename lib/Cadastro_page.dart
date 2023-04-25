@@ -156,7 +156,7 @@ class Cadastro_pageState extends State<_Cadastro_page> {
 
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar("Cadastro"),
+      appBar: getHome_appbar("Cadastro", context),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           _showConfirmationDialog();

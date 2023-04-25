@@ -24,13 +24,15 @@ class _HomePageContentState extends State<HomePageContent> {
           ],
         ),
       ),
-      padding: EdgeInsets.symmetric(
-        vertical: 20,
-        horizontal: 10,
-      ),
       child: ListView(
         children: [
+          Container(
+            child: Text('a'),
+          ),
           Container(),
+          Container(
+            child: Text('a'),
+          ),
         ],
       ),
     );

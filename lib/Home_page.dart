@@ -7,6 +7,7 @@ import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
 import 'package:lista_all/colors/custom_colors.dart';
+import 'package:lista_all/pages/home_widgets/item_lista.dart';
 
 class Home_page extends StatelessWidget {
   const Home_page({super.key});
@@ -38,8 +39,8 @@ class Home_pageState extends State<_Home_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Home_drawer(),
-      appBar: getHome_appbar("Home"),
-      body: HomePageContent(),
+      appBar: getHome_appbar("Home", context),
+      body: getItemLista(),
       bottomNavigationBar: getHome_bnb(context),
     );
   }

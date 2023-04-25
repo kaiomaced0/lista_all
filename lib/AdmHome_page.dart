@@ -34,7 +34,7 @@ class AdmHome_pageState extends State<_AdmHome_page> {
 
 
     return Scaffold(
-      appBar: getHome_appbar("Adm Home"),
+      appBar: getHome_appbar("Adm Home", context),
       body: HomePageContent(),
     );
   }

@@ -120,7 +120,7 @@ class ForgotPass1_pageState extends State<_ForgotPass1_page> {
 
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar("Forgot Pass"),
+      appBar: getHome_appbar("Forgot Pass", context),
       body: HomePageContent(),
     );
   }

@@ -12,12 +12,8 @@ class Home_drawer extends StatefulWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(routes: {
-      '/search': (context) => const Search_page(),
-      '/carrinho': (context) => const Carrinho_page(),
-      '/conta': (context) => const Conta_page(),
-      '/login': (context) => const Login_page()
-    });
+    return MaterialApp(
+      );
   }
 
   @override

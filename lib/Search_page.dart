@@ -33,7 +33,7 @@ class Search_pageState extends State<_Search_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Search"),
+      appBar: getHome_appbar("Search", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
     );

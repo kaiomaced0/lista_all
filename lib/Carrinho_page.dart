@@ -33,7 +33,7 @@ class Carrinho_pageState extends State<_Carrinho_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Carrinho"),
+      appBar: getHome_appbar("Carrinho", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
       drawer: Home_drawer(),

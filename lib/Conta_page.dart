@@ -33,7 +33,7 @@ class Conta_pageState extends State<_Conta_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Conta"),
+      appBar: getHome_appbar("Conta", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
       drawer: Home_drawer(),
