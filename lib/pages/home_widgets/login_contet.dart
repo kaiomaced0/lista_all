@@ -13,6 +13,8 @@ class LoginPageContent extends StatefulWidget {
 }
 
 class _LoginPageContentState extends State<LoginPageContent> {
+  String email = '';
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,12 +24,20 @@ class _LoginPageContentState extends State<LoginPageContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              onChanged: (text) {
+                email = text;
+              },
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
               ),
             ),
             SizedBox(height: 16.0),
             TextField(
+              onChanged: (text) {
+                email = text;
+              },
+              keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
                 labelText: 'Senha',
               ),

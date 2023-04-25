@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/Carrinho_page.dart';
 import 'package:lista_all/Conta_page.dart';
+import 'package:lista_all/Home_page.dart';
 import 'package:lista_all/Login_page.dart';
 import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
@@ -26,11 +27,6 @@ class Home_drawer extends StatefulWidget {
 class _Home_drawerState extends State<Home_drawer> {
   @override
   Widget build(BuildContext context) {
-    void _upgradeNavigator(String caminho) {
-      Navigator.pushNamed(context, '$caminho');
-      setState(() {});
-    }
-
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -56,7 +52,9 @@ class _Home_drawerState extends State<Home_drawer> {
             ),
             title: Text('Conta'),
             onTap: () {
-              _upgradeNavigator('/conta');
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => Conta_page(),
+              ));
             },
           ),
           ListTile(
@@ -66,7 +64,9 @@ class _Home_drawerState extends State<Home_drawer> {
             ),
             title: Text('Carrinho'),
             onTap: () {
-              _upgradeNavigator('/carrinho');
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => Carrinho_page(),
+              ));
             },
           ),
           ListTile(
@@ -75,9 +75,7 @@ class _Home_drawerState extends State<Home_drawer> {
               color: CustomColors().getColorMain(),
             ),
             title: Text('Configurações'),
-            onTap: () {
-              _upgradeNavigator('/config');
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: Icon(
@@ -86,7 +84,9 @@ class _Home_drawerState extends State<Home_drawer> {
             ),
             title: Text('Login'),
             onTap: () {
-              _upgradeNavigator('/login');
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => Login_page(),
+              ));
             },
           ),
           ListTile(
@@ -96,7 +96,9 @@ class _Home_drawerState extends State<Home_drawer> {
             ),
             title: Text('Sair'),
             onTap: () {
-              _upgradeNavigator('/');
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => Home_page(),
+              ));
             },
           ),
         ],

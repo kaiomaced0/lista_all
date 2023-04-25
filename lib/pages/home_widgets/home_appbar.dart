@@ -7,8 +7,31 @@ import 'package:lista_all/colors/custom_colors.dart';
 
 // ignore: non_constant_identifier_names
 BottomNavigationBar getHome_bnb(BuildContext context) {
+  void mudarTela(int x) {
+    if (x == 0) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Home_page(),
+      ));
+    }
+    if (x == 1) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Search_page(),
+      ));
+    }
+    if (x == 2) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Carrinho_page(),
+      ));
+    }
+    if (x == 3) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => Conta_page(),
+      ));
+    }
+  }
+
   return BottomNavigationBar(
-    items: [
+    items: <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         backgroundColor: CustomColors().getColorMain(),
         icon: Icon(Icons.home),
@@ -30,6 +53,9 @@ BottomNavigationBar getHome_bnb(BuildContext context) {
         label: " Conta",
       ),
     ],
+    onTap: (value) {
+      mudarTela(value);
+    },
   );
 }
 
