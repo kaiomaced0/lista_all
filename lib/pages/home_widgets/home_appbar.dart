@@ -6,7 +6,7 @@ import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 
 // ignore: non_constant_identifier_names
-BottomNavigationBar getHome_bnb() {
+BottomNavigationBar getHome_bnb(BuildContext context) {
   return BottomNavigationBar(
     items: [
       BottomNavigationBarItem(
@@ -34,7 +34,7 @@ BottomNavigationBar getHome_bnb() {
 }
 
 AppBar getHome_appbar(String titulo) {
-  Text tituloA  = Text(titulo);
+  Text tituloA = Text(titulo);
   return AppBar(
     title: tituloA,
     centerTitle: true,

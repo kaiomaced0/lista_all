@@ -18,6 +18,7 @@ class _HomeListItemsState extends State<HomeListItems> {
             height: 10,
             color: CustomColors().getColorMain(),
           ),
+          Row(),
           Container(
             color: Colors.white,
             child: Row(

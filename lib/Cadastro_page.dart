@@ -5,7 +5,6 @@ import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/home_fab.dart';
 
 class Cadastro_page extends StatelessWidget {
   const Cadastro_page({super.key});

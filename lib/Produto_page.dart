@@ -3,7 +3,6 @@ import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/home_fab.dart';
 
 class Produto_page extends StatelessWidget {
   const Produto_page({super.key});
@@ -122,7 +121,6 @@ class Produto_pageState extends State<_Produto_page> {
     return Scaffold(
       drawer: getHome_drawer(),
       appBar: getHome_appbar("Produto"),
-      floatingActionButton: getFab(),
       body: HomePageContent(),
     );
   }

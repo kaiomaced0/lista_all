@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/home_fab.dart';
 
 class AdmUsuarioForm_page extends StatelessWidget {
   const AdmUsuarioForm_page({super.key});
@@ -34,7 +33,6 @@ class AdmUsuarioForm_pageState extends State<_AdmUsuarioForm_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getHome_appbar("Adm Home"),
-      floatingActionButton: getFab(),
       body: HomePageContent(),
     );
   }

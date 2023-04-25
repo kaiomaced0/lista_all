@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/home_fab.dart';
 
 class AdmProduto_page extends StatelessWidget {
   const AdmProduto_page({super.key});
@@ -34,7 +33,6 @@ class AdmProduto_pageState extends State<_AdmProduto_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getHome_appbar("Adm Home"),
-      floatingActionButton: getFab(),
       body: HomePageContent(),
     );
   }
