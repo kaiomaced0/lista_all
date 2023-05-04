@@ -36,7 +36,7 @@ class Favoritos_pageState extends State<_Favoritos_page> {
       appBar: getHome_appbar("Favoritos", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
-      drawer: Home_drawer(),
+      drawer: Home_drawer(context),
     );
   }
 }

@@ -36,7 +36,7 @@ class Carrinho_pageState extends State<_Carrinho_page> {
       appBar: getHome_appbar("Carrinho", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
-      drawer: Home_drawer(),
+      drawer: Home_drawer(context),
     );
   }
 }

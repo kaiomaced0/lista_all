@@ -57,6 +57,60 @@ BottomNavigationBar getHome_bnb(BuildContext context) {
     onTap: (value) {
       mudarTela(value);
     },
+    
+  );
+}
+
+BottomNavigationBar getHomeH_bnb(BuildContext context) {
+  void mudarTela2(int x) {
+    if (x == 0) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Home_page(),
+      ));
+    }
+    if (x == 1) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Search_page(),
+      ));
+    }
+    if (x == 2) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Carrinho_page(),
+      ));
+    }
+    if (x == 3) {
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => Conta_page(),
+      ));
+    }
+  }
+
+  return BottomNavigationBar(
+    items: <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+        backgroundColor: CustomColors().getColorMain(),
+        icon: Icon(Icons.home),
+        label: " Home",
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: CustomColors().getColorMain(),
+        icon: Icon(Icons.search),
+        label: " Search",
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: CustomColors().getColorMain(),
+        icon: Icon(Icons.shopping_cart),
+        label: " Carrinho",
+      ),
+      BottomNavigationBarItem(
+        backgroundColor: CustomColors().getColorMain(),
+        icon: Icon(Icons.account_circle),
+        label: " Conta",
+      ),
+    ],
+    onTap: (value) {
+      mudarTela2(value);
+    },
   );
 }
 
@@ -73,7 +127,7 @@ AppBar getHome_appbar(String titulo, BuildContext context) {
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
+          Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => Favoritos_page(),
           ));
         },

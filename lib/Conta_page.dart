@@ -36,7 +36,7 @@ class Conta_pageState extends State<_Conta_page> {
       appBar: getHome_appbar("Conta", context),
       body: HomePageContent(),
       bottomNavigationBar: getHome_bnb(context),
-      drawer: Home_drawer(),
+      drawer: Home_drawer(context),
     );
   }
 }

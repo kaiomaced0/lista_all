@@ -29,7 +29,9 @@ class _HomePageContentState extends State<HomePageContent> {
           Container(
             child: Text('a'),
           ),
-          Container(),
+          Container(
+            child: Text('-'),
+          ),
           Container(
             child: Text('a'),
           ),
