@@ -18,8 +18,8 @@ Drawer Home_drawer(BuildContext context) {
           decoration: BoxDecoration(
             color: CustomColors().getColorMain(),
           ),
-          accountName: Text(UsuarioRepository().usuarioLogado.nome),
-          accountEmail: Text(UsuarioRepository().usuarioLogado.email),
+          accountName: Text(UsuarioRepository.usuarioLogado.nome),
+          accountEmail: Text(UsuarioRepository.usuarioLogado.email),
           currentAccountPicture: CircleAvatar(
             backgroundColor: CustomColors().getColorCustom1(),
             child: Text(
@@ -79,7 +79,7 @@ Drawer Home_drawer(BuildContext context) {
           ),
           title: Text('Sair'),
           onTap: () {
-            UsuarioRepository().usuarioLogado = Usuario('', '', '', '', '', '');
+            UsuarioRepository.usuarioLogado = Usuario('', '', '', '', '', '');
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => Home_page(),
             ));

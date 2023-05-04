@@ -35,7 +35,7 @@ Container getItem(Item item) {
 }
 
 Container getItemLista(BuildContext context) {
-  final tabela = ItemRepository().tabela;
+  ItemRepository.tabela;
 
   return Container(
     decoration: BoxDecoration(
@@ -49,21 +49,22 @@ Container getItemLista(BuildContext context) {
       ),
     ),
     child: ListView.separated(
-      itemCount: tabela.length,
+      itemCount: ItemRepository.tabela.length,
       separatorBuilder: (context, index) => Divider(),
       padding: EdgeInsets.all(16),
       itemBuilder: (BuildContext contexto, int item) {
         return ListTile(
           leading: Image.asset(
-            tabela[item].icone,
+            ItemRepository.tabela[item].icone,
             width: 256,
             height: 256,
           ),
-          title: Text(tabela[item].nomeItem),
-          trailing: Text('R\$ ' + tabela[item].preco.toString()),
+          title: Text(ItemRepository.tabela[item].nomeItem),
+          trailing: Text('R\$ ' + ItemRepository.tabela[item].preco.toString()),
           onTap: (() {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Produto_page(item: tabela[item]),
+              builder: (context) => Produto_page(
+                  title: 'Produto', item: ItemRepository.tabela[item]),
             ));
           }),
         );

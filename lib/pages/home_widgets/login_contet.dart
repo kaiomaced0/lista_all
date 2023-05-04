@@ -21,31 +21,50 @@ class LoginPageContent extends StatefulWidget {
 class _LoginPageContentState extends State<LoginPageContent> {
   String _email = '';
   String _senha = '';
+
+  void _showConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Usuario não encontrado'),
+        content: Text('Login e/ou senha incorreto! '),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _email = '';
+              _senha = '';
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Login_page()),
+              );
+            },
+            child: Text('Tentar novamente'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  bool validaLogin() {
+    for (var i = 0; i < UsuarioRepository.listaUsuarios.length; i++) {
+      if (UsuarioRepository.listaUsuarios[i].email == _email &&
+          UsuarioRepository.listaUsuarios[i].senha == _senha) {
+        UsuarioRepository.usuarioLogado = UsuarioRepository.listaUsuarios[i];
+
+        return true;
+      }
+      if (UsuarioRepository.listaUsuarios[i].login == _email &&
+          UsuarioRepository.listaUsuarios[i].senha == _senha) {
+        UsuarioRepository.usuarioLogado = UsuarioRepository.listaUsuarios[i];
+
+        return true;
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    void _showConfirmationDialog() {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text('Usuario não encontrado'),
-          content: Text('Login e/ou senha incorreto! '),
-          actions: [
-            TextButton(
-              onPressed: () {
-                _email = '';
-                _senha = '';
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => Login_page()),
-                );
-              },
-              child: Text('Tentar novamente'),
-            ),
-          ],
-        ),
-      );
-    }
-
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -87,51 +106,13 @@ class _LoginPageContentState extends State<LoginPageContent> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    for (var i = 0;
-                        i < UsuarioRepository().listaUsuarios.length;
-                        i++) {
-                      if (UsuarioRepository().listaUsuarios[i].email ==
-                          _email) {
-                        if (UsuarioRepository().listaUsuarios[i].senha ==
-                            _senha) {
-                          setState(() {
-                            UsuarioRepository().usuarioLogado =
-                                UsuarioRepository().listaUsuarios[i];
-                          });
-                          Navigator.pushReplacement(
+                    validaLogin()
+                        ? Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Home_page()),
-                          );
-                        } else {
-                          _showConfirmationDialog();
-
-                          print('login ou senha invalido');
-                        }
-                      } else if (UsuarioRepository().listaUsuarios[i].login ==
-                          _email) {
-                        if (UsuarioRepository().listaUsuarios[i].senha ==
-                            _senha) {
-                          setState(() {
-                            UsuarioRepository().usuarioLogado =
-                                UsuarioRepository().listaUsuarios[i];
-                          });
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Home_page()),
-                          );
-                        } else {
-                          _showConfirmationDialog();
-
-                          print('login ou senha invalido');
-                        }
-                      } else {
-                        _showConfirmationDialog();
-
-                        print('login ou senha invalido');
-                      }
-                    }
+                          )
+                        : _showConfirmationDialog();
                   },
                   child: Text('Login'),
                 ),

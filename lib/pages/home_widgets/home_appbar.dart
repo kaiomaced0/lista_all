@@ -6,25 +6,29 @@ import 'package:lista_all/Home_page.dart';
 import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 
-// ignore: non_constant_identifier_names
+int currentBnb = 0;
 BottomNavigationBar getHome_bnb(BuildContext context) {
   void mudarTela(int x) {
     if (x == 0) {
+      currentBnb = 0;
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => Home_page(),
       ));
     }
     if (x == 1) {
+      currentBnb = 1;
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => Search_page(),
       ));
     }
     if (x == 2) {
+      currentBnb = 2;
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => Carrinho_page(),
       ));
     }
     if (x == 3) {
+      currentBnb = 3;
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => Conta_page(),
       ));
@@ -57,7 +61,7 @@ BottomNavigationBar getHome_bnb(BuildContext context) {
     onTap: (value) {
       mudarTela(value);
     },
-    
+    currentIndex: currentBnb,
   );
 }
 
@@ -67,21 +71,25 @@ BottomNavigationBar getHomeH_bnb(BuildContext context) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Home_page(),
       ));
+      currentBnb = 0;
     }
     if (x == 1) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Search_page(),
       ));
+      currentBnb = 1;
     }
     if (x == 2) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Carrinho_page(),
       ));
+      currentBnb = 2;
     }
     if (x == 3) {
       Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => Conta_page(),
       ));
+      currentBnb = 3;
     }
   }
 
@@ -111,6 +119,7 @@ BottomNavigationBar getHomeH_bnb(BuildContext context) {
     onTap: (value) {
       mudarTela2(value);
     },
+    currentIndex: currentBnb,
   );
 }
 

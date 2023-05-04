@@ -64,23 +64,23 @@ class Cadastro_pageState extends State<_Cadastro_page> {
             ElevatedButton(
               onPressed: () {
                 Usuario a = Usuario(
-                    _nomeController.toString(),
-                    _loginController.toString(),
-                    _senhaController.toString(),
-                    _cpfController.toString(),
-                    _emailController.toString(),
+                    _nomeController.text,
+                    _loginController.text,
+                    _senhaController.text,
+                    _cpfController.text,
+                    _emailController.text,
                     '');
                 
-                setState(() {
-                  UsuarioRepository().listaUsuarios.add(a);
-                });
+                
+                  UsuarioRepository.listaUsuarios.add(a);
+                
 
                 print('usuario salvo!');
                 for (var i = 0;
-                    i < UsuarioRepository().listaUsuarios.length;
+                    i < UsuarioRepository.listaUsuarios.length;
                     i++) {
-                  print(UsuarioRepository().listaUsuarios[i].nome);
-                  print(UsuarioRepository().listaUsuarios[i].email);
+                  print(UsuarioRepository.listaUsuarios[i].nome);
+                  print(UsuarioRepository.listaUsuarios[i].email);
                   print('----------------');
                 }
 
