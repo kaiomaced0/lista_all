@@ -7,6 +7,8 @@ import 'package:lista_all/Login_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/main.dart';
 import 'package:lista_all/model/Item.dart';
+import 'package:lista_all/model/usuario.dart';
+import 'package:lista_all/repositories/carrinho_repository.dart';
 import 'package:lista_all/repositories/item_repository.dart';
 import 'package:lista_all/repositories/usuario_repository.dart';
 import 'package:lista_all/main.dart';
@@ -49,13 +51,16 @@ class _LoginPageContentState extends State<LoginPageContent> {
     for (var i = 0; i < UsuarioRepository.listaUsuarios.length; i++) {
       if (UsuarioRepository.listaUsuarios[i].email == _email &&
           UsuarioRepository.listaUsuarios[i].senha == _senha) {
-        UsuarioRepository.usuarioLogado = UsuarioRepository.listaUsuarios[i];
-
+        UsuarioRepository.listaUsuarios[0] = Usuario('', '', '', '', '', '');
+        UsuarioRepository.usuarioLogado = i;
+        CarrinhoRepository.carrinhos[0] = CarrinhoRepository.carrinhoVazio;
+        CarrinhoRepository.carrinhoLogado = i;
         return true;
       }
       if (UsuarioRepository.listaUsuarios[i].login == _email &&
           UsuarioRepository.listaUsuarios[i].senha == _senha) {
-        UsuarioRepository.usuarioLogado = UsuarioRepository.listaUsuarios[i];
+        UsuarioRepository.usuarioLogado = i;
+        CarrinhoRepository.carrinhoLogado = i;
 
         return true;
       }

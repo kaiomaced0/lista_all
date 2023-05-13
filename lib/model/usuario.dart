@@ -9,7 +9,7 @@ class Usuario {
   String cpf;
   String email;
   String icone;
-  Carrinho carrinho = Carrinho(CarrinhoRepository.itensVazio, 0);
+
 
   Usuario(this.nome, this.login, this.senha, this.cpf, this.email, this.icone) {
   }

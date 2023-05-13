@@ -7,45 +7,47 @@ import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 
 int currentBnb = 0;
-BottomNavigationBar getHome_bnb(BuildContext context) {
-  void mudarTela(int x) {
-    if (x == 0) {
-      currentBnb = 0;
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Home_page(),
-      ));
-    }
-    if (x == 1) {
-      currentBnb = 1;
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Search_page(),
-      ));
-    }
-    if (x == 2) {
-      currentBnb = 2;
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Carrinho_page(),
-      ));
-    }
-    if (x == 3) {
-      currentBnb = 3;
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => Conta_page(),
-      ));
-    }
-  }
 
+void mudarTela(int x, BuildContext context) {
+  if (x == 0) {
+    currentBnb = 0;
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => Home_page(),
+    ));
+  }
+  if (x == 1) {
+    currentBnb = 1;
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => Carrinho_page(),
+    ));
+  }
+  if (x == 2) {
+    currentBnb = 2;
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) => Conta_page(),
+    ));
+  }
+  if (x == 3) {
+    currentBnb = 0;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => Search_page(),
+    ));
+  }
+  if (x == 4) {
+    currentBnb = 0;
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => Favoritos_page(),
+    ));
+  }
+}
+
+BottomNavigationBar getHome_bnb(BuildContext context) {
   return BottomNavigationBar(
     items: <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         backgroundColor: CustomColors().getColorMain(),
         icon: Icon(Icons.home),
         label: " Home",
-      ),
-      BottomNavigationBarItem(
-        backgroundColor: CustomColors().getColorMain(),
-        icon: Icon(Icons.search),
-        label: " Search",
       ),
       BottomNavigationBarItem(
         backgroundColor: CustomColors().getColorMain(),
@@ -59,51 +61,19 @@ BottomNavigationBar getHome_bnb(BuildContext context) {
       ),
     ],
     onTap: (value) {
-      mudarTela(value);
+      mudarTela(value, context);
     },
     currentIndex: currentBnb,
   );
 }
 
 BottomNavigationBar getHomeH_bnb(BuildContext context) {
-  void mudarTela2(int x) {
-    if (x == 0) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Home_page(),
-      ));
-      currentBnb = 0;
-    }
-    if (x == 1) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Search_page(),
-      ));
-      currentBnb = 1;
-    }
-    if (x == 2) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Carrinho_page(),
-      ));
-      currentBnb = 2;
-    }
-    if (x == 3) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => Conta_page(),
-      ));
-      currentBnb = 3;
-    }
-  }
-
   return BottomNavigationBar(
     items: <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         backgroundColor: CustomColors().getColorMain(),
         icon: Icon(Icons.home),
         label: " Home",
-      ),
-      BottomNavigationBarItem(
-        backgroundColor: CustomColors().getColorMain(),
-        icon: Icon(Icons.search),
-        label: " Search",
       ),
       BottomNavigationBarItem(
         backgroundColor: CustomColors().getColorMain(),
@@ -117,7 +87,7 @@ BottomNavigationBar getHomeH_bnb(BuildContext context) {
       ),
     ],
     onTap: (value) {
-      mudarTela2(value);
+      mudarTela(value, context);
     },
     currentIndex: currentBnb,
   );
@@ -136,9 +106,7 @@ AppBar getHome_appbar(String titulo, BuildContext context) {
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Favoritos_page(),
-          ));
+          mudarTela(4, context);
         },
       ),
       IconButton(
@@ -147,9 +115,7 @@ AppBar getHome_appbar(String titulo, BuildContext context) {
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => Search_page(),
-          ));
+          mudarTela(3, context);
         },
       ),
     ],

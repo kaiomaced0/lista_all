@@ -35,6 +35,7 @@ class Search_pageState extends State<_Search_page> {
     return Scaffold(
       appBar: getHome_appbar("Search", context),
       body: HomePageContent(),
+      drawer: Home_drawer(context),
       bottomNavigationBar: getHome_bnb(context),
     );
   }

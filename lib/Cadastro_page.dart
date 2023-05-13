@@ -8,6 +8,8 @@ import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
 import 'package:lista_all/model/usuario.dart';
+import 'package:lista_all/model/carrinho.dart';
+import 'package:lista_all/repositories/carrinho_repository.dart';
 import 'package:lista_all/repositories/usuario_repository.dart';
 
 class Cadastro_page extends StatelessWidget {
@@ -70,10 +72,10 @@ class Cadastro_pageState extends State<_Cadastro_page> {
                     _cpfController.text,
                     _emailController.text,
                     '');
-                
-                
-                  UsuarioRepository.listaUsuarios.add(a);
-                
+
+                UsuarioRepository.listaUsuarios.add(a);
+                CarrinhoRepository.carrinhos
+                    .add(Carrinho(CarrinhoRepository.itensVazio, 0, a));
 
                 print('usuario salvo!');
                 for (var i = 0;

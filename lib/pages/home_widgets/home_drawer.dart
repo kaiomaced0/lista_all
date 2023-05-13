@@ -7,9 +7,22 @@ import 'package:lista_all/Login_page.dart';
 import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/model/usuario.dart';
+import 'package:lista_all/model/carrinho.dart';
+import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/repositories/carrinho_repository.dart';
 import 'package:lista_all/repositories/usuario_repository.dart';
 
 Drawer Home_drawer(BuildContext context) {
+  String aa = '00';
+  if (UsuarioRepository.listaUsuarios[UsuarioRepository.usuarioLogado].nome !=
+      '') {
+    aa = UsuarioRepository
+        .listaUsuarios[UsuarioRepository.usuarioLogado].nome.characters.first;
+  } else if (UsuarioRepository
+          .listaUsuarios[UsuarioRepository.usuarioLogado].nome !=
+      '') {
+    aa = '00';
+  }
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
@@ -18,12 +31,14 @@ Drawer Home_drawer(BuildContext context) {
           decoration: BoxDecoration(
             color: CustomColors().getColorMain(),
           ),
-          accountName: Text(UsuarioRepository.usuarioLogado.nome),
-          accountEmail: Text(UsuarioRepository.usuarioLogado.email),
+          accountName: Text(UsuarioRepository
+              .listaUsuarios[UsuarioRepository.usuarioLogado].nome),
+          accountEmail: Text(UsuarioRepository
+              .listaUsuarios[UsuarioRepository.usuarioLogado].email),
           currentAccountPicture: CircleAvatar(
             backgroundColor: CustomColors().getColorCustom1(),
             child: Text(
-              "KM",
+              aa,
               style: TextStyle(fontSize: 40),
             ),
           ),
@@ -35,9 +50,7 @@ Drawer Home_drawer(BuildContext context) {
           ),
           title: Text('Conta'),
           onTap: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => Conta_page(),
-            ));
+            mudarTela(2, context);
           },
         ),
         ListTile(
@@ -47,9 +60,7 @@ Drawer Home_drawer(BuildContext context) {
           ),
           title: Text('Carrinho'),
           onTap: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => Carrinho_page(),
-            ));
+            mudarTela(1, context);
           },
         ),
         ListTile(
@@ -67,6 +78,7 @@ Drawer Home_drawer(BuildContext context) {
           ),
           title: Text('Login'),
           onTap: () {
+            currentBnb = 0;
             Navigator.of(context).pushReplacement(MaterialPageRoute(
               builder: (context) => Login_page(),
             ));
@@ -79,10 +91,13 @@ Drawer Home_drawer(BuildContext context) {
           ),
           title: Text('Sair'),
           onTap: () {
-            UsuarioRepository.usuarioLogado = Usuario('', '', '', '', '', '');
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => Home_page(),
-            ));
+            UsuarioRepository.usuarioLogado = 0;
+            UsuarioRepository.listaUsuarios[0] =
+                Usuario('', '', '', '', '', '');
+            CarrinhoRepository.carrinhos[0] = CarrinhoRepository.carrinhoVazio;
+            CarrinhoRepository.carrinhoLogado = 0;
+
+            mudarTela(0, context);
           },
         ),
       ],

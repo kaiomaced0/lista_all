@@ -37,6 +37,7 @@ class Login_pageState extends State<_Login_page> {
       drawer: Home_drawer(context),
       appBar: getHome_appbar("Login", context),
       body: LoginPageContent(),
+      bottomNavigationBar: getHome_bnb(context),
     );
   }
 }

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
+import 'package:lista_all/model/Item.dart';
 import 'package:lista_all/pages/home_widgets/home_appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/pages/home_widgets/item_lista.dart';
+import 'package:lista_all/repositories/carrinho_repository.dart';
+import 'package:lista_all/repositories/item_repository.dart';
+import 'package:lista_all/repositories/usuario_repository.dart';
 
 class Carrinho_page extends StatelessWidget {
   const Carrinho_page({super.key});
@@ -30,11 +35,14 @@ class _Carrinho_page extends StatefulWidget {
 }
 
 class Carrinho_pageState extends State<_Carrinho_page> {
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getHome_appbar("Carrinho", context),
-      body: HomePageContent(),
+      body: getItemListaCarrinho(
+          CarrinhoRepository.carrinhos[CarrinhoRepository.carrinhoLogado].itensCarrinho, context),
       bottomNavigationBar: getHome_bnb(context),
       drawer: Home_drawer(context),
     );
