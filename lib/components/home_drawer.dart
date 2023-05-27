@@ -1,14 +1,9 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:lista_all/Carrinho_page.dart';
-import 'package:lista_all/Conta_page.dart';
-import 'package:lista_all/Home_page.dart';
 import 'package:lista_all/Login_page.dart';
-import 'package:lista_all/Search_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/model/usuario.dart';
-import 'package:lista_all/model/carrinho.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/widgets/navigator_telas.dart';
 import 'package:lista_all/repositories/carrinho_repository.dart';
 import 'package:lista_all/repositories/usuario_repository.dart';
 

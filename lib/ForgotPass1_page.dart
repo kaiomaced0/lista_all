@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/home_drawer.dart';
 
 class ForgotPass1_page extends StatelessWidget {
   const ForgotPass1_page({super.key});
@@ -120,7 +120,7 @@ class ForgotPass1_pageState extends State<_ForgotPass1_page> {
 
     return Scaffold(
       drawer: getHome_drawer(),
-      appBar: getHome_appbar("Forgot Pass", context),
+      appBar: appBar("Forgot Pass", context),
       body: HomePageContent(),
     );
   }

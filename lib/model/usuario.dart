@@ -9,8 +9,9 @@ class Usuario {
   String cpf;
   String email;
   String icone;
-
+  late List<int> cartoes;
 
   Usuario(this.nome, this.login, this.senha, this.cpf, this.email, this.icone) {
+    this.cartoes = [];
   }
 }

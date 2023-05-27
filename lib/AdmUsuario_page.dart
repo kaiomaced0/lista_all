@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/home_drawer.dart';
 
 class AdmUsuario_page extends StatelessWidget {
   const AdmUsuario_page({super.key});
@@ -32,7 +32,7 @@ class AdmUsuario_pageState extends State<_AdmUsuario_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Adm Home", context),
+      appBar: appBar("Adm Home", context),
       body: HomePageContent(),
     );
   }

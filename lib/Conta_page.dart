@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/bnb.dart';
+import 'package:lista_all/components/appbar.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/home_drawer.dart';
 import 'package:lista_all/repositories/usuario_repository.dart';
 
 class Conta_page extends StatelessWidget {
@@ -40,14 +41,14 @@ class Conta_pageState extends State<_Conta_page> {
     String email =
         UsuarioRepository.listaUsuarios[UsuarioRepository.usuarioLogado].email;
     return Scaffold(
-      appBar: getHome_appbar("Conta", context),
+      appBar: appBar("Conta", context),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              color: Colors.grey[400],
+              color: Color.fromARGB(255, 118, 82, 190),
               width: 300,
               height: 35,
               alignment: Alignment.bottomLeft,
@@ -58,7 +59,7 @@ class Conta_pageState extends State<_Conta_page> {
             ),
             SizedBox(height: 10),
             Container(
-              color: Colors.grey[400],
+              color: Color.fromARGB(255, 118, 82, 190),
               width: 300,
               height: 35,
               alignment: Alignment.bottomLeft,
@@ -71,63 +72,36 @@ class Conta_pageState extends State<_Conta_page> {
             Row(
               children: [
                 SizedBox(height: 40, width: 50),
-                CardButton(
-                  title: 'Endereços',
-                  onTap: () {
-                    // Lógica para lidar com o pressionamento do botão "Endereços"
-                  },
-                ),
-                CardButton(
-                  title: 'Cartões',
-                  onTap: () {
-                    // Lógica para lidar com o pressionamento do botão "Cartões"
-                  },
-                ),
-                CardButton(
-                  title: 'Cartões',
-                  onTap: () {
-                    // Lógica para lidar com o pressionamento do botão "Cartões"
-                  },
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Card(
+                      borderOnForeground: true,
+                      elevation: 4,
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            Icon(Icons.credit_card),
+                            SizedBox(height: 8),
+                            Text(
+                              'Enderecos',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
-      bottomNavigationBar: getHome_bnb(context),
-    );
-  }
-}
-
-class CardButton extends StatelessWidget {
-  final String title;
-  final VoidCallback onTap;
-
-  const CardButton({required this.title, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        this.onTap;
-      },
-      child: Card(
-        borderOnForeground: true,
-        elevation: 4,
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            children: [
-              Icon(Icons.credit_card),
-              SizedBox(height: 8),
-              Text(
-                title,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: bnb(context),
     );
   }
 }

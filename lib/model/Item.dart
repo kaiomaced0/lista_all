@@ -9,4 +9,7 @@ class Item {
 
   Item(this.icone, this.nomeItem, this.preco, this.descricaoCurta,
       this.descricao);
+
+  @override
+  String toString() => nomeItem;
 }

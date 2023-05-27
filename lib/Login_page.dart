@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/appbar.dart';
+import 'package:lista_all/components/bnb.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/login_contet.dart';
+import 'package:lista_all/components/home_drawer.dart';
+import 'package:lista_all/pages/login_contet.dart';
 
 class Login_page extends StatelessWidget {
   const Login_page({super.key});
@@ -35,9 +36,9 @@ class Login_pageState extends State<_Login_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Home_drawer(context),
-      appBar: getHome_appbar("Login", context),
+      appBar: appBar("Login", context),
       body: LoginPageContent(),
-      bottomNavigationBar: getHome_bnb(context),
+      bottomNavigationBar: bnb(context),
     );
   }
 }

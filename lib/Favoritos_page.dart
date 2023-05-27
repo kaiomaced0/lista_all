@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/bnb.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/home_drawer.dart';
+import 'package:lista_all/components/appbar.dart';
 
 class Favoritos_page extends StatelessWidget {
   const Favoritos_page({super.key});
@@ -33,9 +34,9 @@ class Favoritos_pageState extends State<_Favoritos_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Favoritos", context),
+      appBar: appBar("Favoritos", context),
       body: HomePageContent(),
-      bottomNavigationBar: getHome_bnb(context),
+      bottomNavigationBar: bnb(context),
       drawer: Home_drawer(context),
     );
   }

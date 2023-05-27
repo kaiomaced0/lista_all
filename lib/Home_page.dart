@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
-import 'package:lista_all/pages/home_widgets/item_lista.dart';
+import 'package:lista_all/components/appbar.dart';
+import 'package:lista_all/components/bnb.dart';
+import 'package:lista_all/components/home_drawer.dart';
+import 'package:lista_all/components/item_lista_widget.dart';
 
 class Home_page extends StatelessWidget {
   const Home_page({super.key});
@@ -34,9 +35,9 @@ class Home_pageState extends State<_Home_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Home_drawer(context),
-      appBar: getHome_appbar("Home", context),
-      body: getItemLista(context),
-      bottomNavigationBar: getHomeH_bnb(context),
+      appBar: appBar("Home", context),
+      body: itemListWidget(context),
+      bottomNavigationBar: bnb(context),
     );
   }
 }

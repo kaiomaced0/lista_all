@@ -3,10 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/Home_page.dart';
 import 'package:lista_all/Login_page.dart';
-import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
-import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/appbar.dart';
 import 'package:lista_all/model/usuario.dart';
 import 'package:lista_all/model/carrinho.dart';
 import 'package:lista_all/repositories/carrinho_repository.dart';
@@ -99,7 +96,7 @@ class Cadastro_pageState extends State<_Cadastro_page> {
     }
 
     return Scaffold(
-      appBar: getHome_appbar("Cadastro", context),
+      appBar: appBar("Cadastro", context),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           _showConfirmationDialog();

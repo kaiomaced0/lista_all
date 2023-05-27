@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/colors/custom_colors.dart';
-import 'package:lista_all/pages/home_widgets/home_appbar.dart';
+import 'package:lista_all/components/appbar.dart';
+import 'package:lista_all/components/bnb.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
-import 'package:lista_all/pages/home_widgets/home_drawer.dart';
+import 'package:lista_all/components/home_drawer.dart';
 
 class Search_page extends StatelessWidget {
   const Search_page({super.key});
@@ -33,10 +34,10 @@ class Search_pageState extends State<_Search_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getHome_appbar("Search", context),
+      appBar: appBar("Search", context),
       body: HomePageContent(),
       drawer: Home_drawer(context),
-      bottomNavigationBar: getHome_bnb(context),
+      bottomNavigationBar: bnb(context),
     );
   }
 }
