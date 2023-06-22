@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lista_all/components/appbar.dart';
+import 'package:lista_all/components/bnb_adm.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
 import 'package:lista_all/components/home_drawer.dart';
 
@@ -29,11 +30,13 @@ class _AdmProduto_page extends StatefulWidget {
 }
 
 class AdmProduto_pageState extends State<_AdmProduto_page> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar("Adm Home", context),
       body: HomePageContent(),
+      bottomNavigationBar: bnbAdm(context),
     );
   }
 }

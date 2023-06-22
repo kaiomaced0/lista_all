@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:lista_all/Produto_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
@@ -6,9 +8,11 @@ import 'package:lista_all/components/bnb.dart';
 import 'package:lista_all/widgets/navigator_telas.dart';
 import 'package:lista_all/repositories/carrinho_repository.dart';
 
-Container itemListCarrinhoWidget(List<Item> itens, BuildContext context) {
+Container listItemWidget(List<Item> itens, BuildContext context) {
   print(itens.length);
   print(itens);
+  double tamanhoTelaH = MediaQuery.of(context).size.height;
+  double tamanhoTelaW = MediaQuery.of(context).size.width;
   return Container(
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -27,12 +31,13 @@ Container itemListCarrinhoWidget(List<Item> itens, BuildContext context) {
       itemBuilder: (BuildContext context, int i) {
         print(i);
         return ListTile(
+          
           leading: Image.asset(
             itens[i].icone,
-            width: 200,
-            height: 200,
+            width: tamanhoTelaH * 0.1,
+            height: tamanhoTelaH * 0.1,
           ),
-          title: Text(itens[i].nomeItem),
+          title: Text(itens[i].nomeItem, softWrap: false,),
           trailing: Container(
             width: 180,
             alignment: Alignment.centerRight,
@@ -56,7 +61,7 @@ Container itemListCarrinhoWidget(List<Item> itens, BuildContext context) {
                   ),
                 ),
                 Container(
-                    width: 100,
+                    width: tamanhoTelaH * 0.1,
                     alignment: Alignment.centerRight,
                     child: Text(
                         'R\$ ' + itens[i].preco.toString(),

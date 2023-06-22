@@ -10,6 +10,7 @@ class Usuario {
   String email;
   String icone;
   late List<int> cartoes;
+  late List<int> listaDesejos;
 
   Usuario(this.nome, this.login, this.senha, this.cpf, this.email, this.icone) {
     this.cartoes = [];

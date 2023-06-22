@@ -7,6 +7,7 @@ import 'package:lista_all/Login_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/main.dart';
 import 'package:lista_all/model/Item.dart';
+import 'package:lista_all/model/carrinho.dart';
 import 'package:lista_all/model/usuario.dart';
 import 'package:lista_all/repositories/carrinho_repository.dart';
 import 'package:lista_all/repositories/item_repository.dart';
@@ -23,6 +24,7 @@ class LoginPageContent extends StatefulWidget {
 class _LoginPageContentState extends State<LoginPageContent> {
   String _email = '';
   String _senha = '';
+  bool _adm = false;
 
   void _showConfirmationDialog() {
     showDialog(
@@ -47,21 +49,44 @@ class _LoginPageContentState extends State<LoginPageContent> {
     );
   }
 
+  void validarCarrinho(int i) {
+    UsuarioRepository.listaUsuarios[0] = Usuario('', '', '', '', '', '');
+    if (UsuarioRepository.usuarioLogado == 0) {
+      if (CarrinhoRepository.carrinhos[i].valorTotal == 0 &&
+          CarrinhoRepository.carrinhos[i].itensCarrinho.length == 0) {
+        CarrinhoRepository.carrinhos[i].itensCarrinho =
+            CarrinhoRepository.carrinhos[0].itensCarrinho;
+
+        CarrinhoRepository.carrinhos[i].valorTotal =
+            CarrinhoRepository.carrinhos[0].valorTotal;
+      }
+    }
+    CarrinhoRepository.itensVazio = [];
+    CarrinhoRepository.carrinhos[0].itensCarrinho = [];
+    CarrinhoRepository.carrinhos[0].valorTotal = 0;
+    UsuarioRepository.usuarioLogado = i;
+    CarrinhoRepository.carrinhoLogado = i;
+    CarrinhoRepository.calculaPrecoLista(i);
+  }
+
   bool validaLogin() {
     for (var i = 0; i < UsuarioRepository.listaUsuarios.length; i++) {
       if (UsuarioRepository.listaUsuarios[i].email == _email &&
           UsuarioRepository.listaUsuarios[i].senha == _senha) {
-        UsuarioRepository.listaUsuarios[0] = Usuario('', '', '', '', '', '');
-        UsuarioRepository.usuarioLogado = i;
-        CarrinhoRepository.carrinhos[0] = CarrinhoRepository.carrinhoVazio;
-        CarrinhoRepository.carrinhoLogado = i;
+        _adm = false;
+        if (i == 1) {
+          _adm = true;
+        }
+        validarCarrinho(i);
         return true;
       }
       if (UsuarioRepository.listaUsuarios[i].login == _email &&
           UsuarioRepository.listaUsuarios[i].senha == _senha) {
-        UsuarioRepository.usuarioLogado = i;
-        CarrinhoRepository.carrinhoLogado = i;
-
+        _adm = false;
+        if (i == 1) {
+          _adm = true;
+        }
+        validarCarrinho(i);
         return true;
       }
     }

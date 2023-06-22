@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/components/appbar.dart';
 import 'package:lista_all/components/bnb.dart';
 import 'package:lista_all/pages/home_widgets/home_content.dart';
