@@ -55,6 +55,15 @@ Container itemWidget(Item item, BuildContext context) {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () {
+                    final snackBar = SnackBar(
+                      content: const Text('Produto adicionado'),
+                      action: SnackBarAction(
+                        textColor: Colors.green,
+                        onPressed: () {},
+                        label: '',
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     CarrinhoRepository.adicionaLista(
                         CarrinhoRepository.carrinhoLogado, item);
                   },

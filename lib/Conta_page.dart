@@ -86,7 +86,7 @@ class Conta_pageState extends State<_Conta_page> {
                             Icon(Icons.credit_card),
                             SizedBox(height: 8),
                             Text(
-                              'Enderecos',
+                              'Cartoes',
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),

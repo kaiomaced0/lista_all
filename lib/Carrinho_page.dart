@@ -43,7 +43,7 @@ class Carrinho_pageState extends State<_Carrinho_page> {
           context),
       bottomNavigationBar: bnb(context),
       drawer: Home_drawer(context),
-      floatingActionButton: getFabCarrinho(100, 100),
+      floatingActionButton: getFabCarrinho(100, 100, context),
     );
   }
 }

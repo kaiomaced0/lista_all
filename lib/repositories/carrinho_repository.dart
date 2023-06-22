@@ -23,6 +23,7 @@ class CarrinhoRepository {
   static void removeLista(int posicao, Item item) {
     CarrinhoRepository.carrinhos[posicao].itensCarrinho.remove(item);
     calculaPrecoLista(posicao);
+    
   }
 
   static List<Item> itensVazio2 = [

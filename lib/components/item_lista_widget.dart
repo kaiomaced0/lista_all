@@ -35,13 +35,14 @@ Container itemListWidget(BuildContext context) {
           subtitle:
               Text(ItemRepository.tabela[item].descricaoCurta, maxLines: 2),
           trailing: Container(
-            width: 180,
+            width: 220,
             alignment: Alignment.centerRight,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
+                  width: 10,
                   alignment: Alignment.bottomLeft,
                   margin: EdgeInsets.fromLTRB(16.0, 8.0, 24.0, 12.0),
                   child: IconButton(
@@ -58,6 +59,7 @@ Container itemListWidget(BuildContext context) {
                   ),
                 ),
                 Container(
+                  width: 25,
                   alignment: Alignment.bottomLeft,
                   margin: EdgeInsets.fromLTRB(16.0, 8.0, 24.0, 12.0),
                   child: IconButton(
@@ -66,6 +68,15 @@ Container itemListWidget(BuildContext context) {
                     hoverColor: Colors.black45,
                     icon: Icon(Icons.shopping_cart),
                     onPressed: () {
+                      final snackBar = SnackBar(
+            content: const Text('Produto adicionado'),
+            action: SnackBarAction(
+              textColor: Colors.green,
+              onPressed: () {},
+              label: '',
+            ),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       CarrinhoRepository.adicionaLista(
                           CarrinhoRepository.carrinhoLogado,
                           ItemRepository.tabela[item]);
@@ -82,6 +93,7 @@ Container itemListWidget(BuildContext context) {
             ),
           ),
           onTap: (() {
+            
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Produto_page(
                     title: 'Produto', item: ItemRepository.tabela[item])));

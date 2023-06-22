@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:lista_all/Carrinho_page.dart';
 import 'package:lista_all/Produto_page.dart';
 import 'package:lista_all/colors/custom_colors.dart';
 import 'package:lista_all/model/Item.dart';
@@ -9,6 +11,18 @@ import 'package:lista_all/widgets/navigator_telas.dart';
 import 'package:lista_all/repositories/carrinho_repository.dart';
 
 Container listItemWidget(List<Item> itens, BuildContext context) {
+  SnackBar snackBar() {
+    return SnackBar(
+      content: const Text('Produto removido do Carrinho'),
+      action: SnackBarAction(
+        textColor: Colors.red,
+        onPressed: () {},
+        label: '',
+      ),
+    );
+  }
+
+
   print(itens.length);
   print(itens);
   double tamanhoTelaH = MediaQuery.of(context).size.height;
@@ -31,13 +45,15 @@ Container listItemWidget(List<Item> itens, BuildContext context) {
       itemBuilder: (BuildContext context, int i) {
         print(i);
         return ListTile(
-          
           leading: Image.asset(
             itens[i].icone,
             width: tamanhoTelaH * 0.1,
             height: tamanhoTelaH * 0.1,
           ),
-          title: Text(itens[i].nomeItem, softWrap: false,),
+          title: Text(
+            itens[i].nomeItem,
+            softWrap: false,
+          ),
           trailing: Container(
             width: 180,
             alignment: Alignment.centerRight,
@@ -56,15 +72,22 @@ Container listItemWidget(List<Item> itens, BuildContext context) {
                     onPressed: () {
                       CarrinhoRepository.removeLista(
                           CarrinhoRepository.carrinhoLogado, itens[i]);
+
                       mudarTela(1, context);
+                      Timer(
+                        Duration(seconds: 1),
+                        () {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(snackBar());
+                        },
+                      );
                     },
                   ),
                 ),
                 Container(
                     width: tamanhoTelaH * 0.1,
                     alignment: Alignment.centerRight,
-                    child: Text(
-                        'R\$ ' + itens[i].preco.toString(),
+                    child: Text('R\$ ' + itens[i].preco.toString(),
                         textAlign: TextAlign.center)),
               ],
             ),
